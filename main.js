@@ -13,5 +13,19 @@ function ajouterPrenom() {
 
     // Effacer le champ de texte au click
     document.getElementById('prenom').value = '';
+
+    afficherPrenoms();
 }
 
+function afficherPrenoms() {
+    const listePrenoms = document.getElementById('listePrenoms');
+    // Effacer la liste existante
+    listePrenoms.innerHTML = '';
+
+    // Ajouter chaque prénom à la liste
+    tableauPrenoms.forEach((prenom) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = prenom;
+        listePrenoms.appendChild(listItem);
+    });
+}
