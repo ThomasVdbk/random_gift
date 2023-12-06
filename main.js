@@ -13,6 +13,13 @@ btnValiderPrenom.addEventListener('click', () => {
 });
 
 
+const btnTirerAuSort = document.getElementById("btnTirerAuSort");
+// Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
+btnTirerAuSort.addEventListener('click', () => {
+    tirerAuSort();
+})
+
+
 function ajouterPrenom() {
     // Récupérer la valeur du champ de texte avec id "prenom"
     const prenom = document.getElementById('prenom').value;
@@ -35,8 +42,8 @@ function afficherPrenoms() {
     listePrenoms.innerHTML = '';
 
     // Ajouter titre dès le premier prénom saisi
-    const titleListItem = document.createElement('h3')
-    titleListItem.textContent = "Liste des participants ajoutés : "
+    const titleListItem = document.createElement('h3');
+    titleListItem.textContent = "Liste des participants ajoutés : ";
     listePrenoms.appendChild(titleListItem);
 
     // Ajouter chaque prénom à la liste
@@ -45,4 +52,11 @@ function afficherPrenoms() {
         listItem.textContent = prenom;
         listePrenoms.appendChild(listItem);
     });
+}
+
+
+function tirerAuSort() {
+    const indiceAleatoire = Math.floor(Math.random() * tableauPrenoms.length);
+    const prenomTire = tableauPrenoms[indiceAleatoire];
+    return console.log(prenomTire)
 }
