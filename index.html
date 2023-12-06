@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="main.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
             <label for="prenom">Saisissez votre prénom :</label>
             <input type="text" id="prenom" name="prenom">
 
-            <button type="button" onclick="ajouterPrenom()">Ajouter</button>
+            <button type="button" id="btnValiderPrenom">Ajouter</button>
         </form>
 
         <ul id="listePrenoms"></ul>
