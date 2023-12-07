@@ -24,16 +24,34 @@
                 vous souhaitez désigner des Offreur/euse et des hotes/tesses, alors vous êtes au bon endroit.</p>
         </div>
 
+        <!--Zone de choix deroulement du tirage-->
+        <div class="zoneOptions">
+            <h2>Option de tirage</h2>
+            <P>Choisissez votre option de tirage, tirage en paire (échange mutuel)
+                ou tirage en chaine (échange pas nécessairement vis-à-vis de la même personne). </P>
+            <div class="optionSource">
+                <input type="radio" name="optionSource" id="tiragePaire" value="1" checked>
+                <label for="tiragePaire">Tirage Paire</label>
+                <input type="radio" name="optionSource" id="tirageChaine" value="2">
+                <label for="tirageChaine">Tirage Chaine</label>
+            </div>
+        </div>
+
         <!--Formulaire pour ajouter des participants-->
         <form id="formulairePrenom">
+            <h2></h2>
             <label for="prenom">Saisissez votre prénom :</label>
             <input type="text" id="prenom" name="prenom">
-
             <button type="button" id="btnValiderPrenom">Ajouter</button>
-            <button type="button" id="btnTirerAuSort">Tirage</button>
         </form>
 
+        <div class="tirage">
+            <button type="button" id="btnTirerAuSort">Tirage</button>
+        </div>
+        <!--Unordered list des prénoms ajoutés-->
         <ul id="listePrenoms"></ul>
+        <!--Ordered list des prenoms mélangés et assemblés par paire-->
+        <ol id="listePrenomsMelange"></ol>
 
 
     </main>
