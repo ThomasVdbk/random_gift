@@ -66,10 +66,16 @@ function melangerTableau() {
 
 function afficherPaire(tableau) {
     const listePrenomsMelange = document.getElementById('listePrenomsMelange');
+    const titleListItem = document.createElement('h3');
+    titleListItem.textContent = "Nouveau tirage de participants en paire";
+    listePrenomsMelange.appendChild(titleListItem);
+    const olListItem = document.createElement('ol');
+    listePrenomsMelange.appendChild(olListItem);
+
     for (let k = 0; k < tableau.length; k += 2) {
         const listItem = document.createElement('li');
         listItem.textContent = tableau[k] + " et " + tableau[k + 1];
-        listePrenomsMelange.appendChild(listItem);
+        olListItem.appendChild(listItem);
     }
 }
 
