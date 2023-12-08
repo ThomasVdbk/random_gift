@@ -89,7 +89,7 @@ function afficherChaine(tableau) {
         tableau.push(tableau[0]);
     }
 
-    for (let k = 0; k < tableau.length; k += 2) {
+    for (let k = 0; k < tableau.length - 1; k++) {
         const listItem = document.createElement('li');
         listItem.textContent = tableau[k] + " et " + tableau[k + 1];
         olListItem.appendChild(listItem);
