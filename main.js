@@ -83,10 +83,8 @@ function afficherPaire(tableau) {
 
 // Récupérer élément du DOM button 
 const btnValiderPrenom = document.getElementById('btnValiderPrenom');
-
 // Ecouteur sur le button id="btnValiderPrenom" avec fonction fléchée 
 btnValiderPrenom.addEventListener('click', () => {
-
     // Appel de la fonction ajouterPrenom à chaque clic sur le bouton
     ajouterPrenom();
     afficherPrenoms();
@@ -94,9 +92,24 @@ btnValiderPrenom.addEventListener('click', () => {
 
 
 const btnTirerAuSort = document.getElementById("btnTirerAuSort");
+
+
 // Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
 btnTirerAuSort.addEventListener('click', () => {
-    const tableauMelange = melangerTableau();
-    afficherPaire(tableauMelange);
+    const optionTiragePaire = document.getElementById("tiragePaire");
+    const optionTirageChaine = document.getElementById("tirageChaine");
+    if (optionTiragePaire.checked) {
+        const tableauMelange = melangerTableau();
+        afficherPaire(tableauMelange);
+    } else if (optionTirageChaine.checked) {
+        // En attente appel fonction tirageChaine
+
+    }
+
 })
+
+
+
+
+
 
