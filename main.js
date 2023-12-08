@@ -52,20 +52,19 @@ function melangerTableau() {
     let prenomsMelanges = [...tableauPrenoms];
     let quantitePrenoms = prenomsMelanges.length;
 
-    if (quantitePrenoms % 2 === 0) {
-        // Mélanger le tableau algorithme de Fisher-Yates
-        for (let i = quantitePrenoms - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [prenomsMelanges[i], prenomsMelanges[j]] = [prenomsMelanges[j], prenomsMelanges[i]];
-        }
-        return prenomsMelanges;
-    } else {
-        console.log("tableau impaire !");
+
+    // Mélanger le tableau algorithme de Fisher-Yates
+    for (let i = quantitePrenoms - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [prenomsMelanges[i], prenomsMelanges[j]] = [prenomsMelanges[j], prenomsMelanges[i]];
     }
+    return prenomsMelanges;
+
 }
 
+const listePrenomsMelange = document.getElementById('listePrenomsMelange');
+
 function afficherPaire(tableau) {
-    const listePrenomsMelange = document.getElementById('listePrenomsMelange');
     const titleListItem = document.createElement('h3');
     titleListItem.textContent = "Nouveau tirage de participants en paire";
     listePrenomsMelange.appendChild(titleListItem);
@@ -79,6 +78,24 @@ function afficherPaire(tableau) {
     }
 }
 
+function afficherChaine(tableau) {
+    const titleListItem = document.createElement('h3');
+    titleListItem.textContent = "Nouveau tirage de participants en chaine";
+    listePrenomsMelange.appendChild(titleListItem);
+    const olListItem = document.createElement('ol');
+    listePrenomsMelange.appendChild(olListItem);
+
+    if (tableau.length % 2 !== 0) {
+        tableau.push(tableau[0]);
+    }
+
+    for (let k = 0; k < tableau.length; k += 2) {
+        const listItem = document.createElement('li');
+        listItem.textContent = tableau[k] + " et " + tableau[k + 1];
+        olListItem.appendChild(listItem);
+    }
+
+}
 
 
 // Récupérer élément du DOM button 
@@ -98,12 +115,13 @@ const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 btnTirerAuSort.addEventListener('click', () => {
     const optionTiragePaire = document.getElementById("tiragePaire");
     const optionTirageChaine = document.getElementById("tirageChaine");
+
+    const tableauMelange = melangerTableau();
     if (optionTiragePaire.checked) {
-        const tableauMelange = melangerTableau();
         afficherPaire(tableauMelange);
     } else if (optionTirageChaine.checked) {
         // En attente appel fonction tirageChaine
-
+        afficherChaine(tableauMelange);
     }
 
 })
