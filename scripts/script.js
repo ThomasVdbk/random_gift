@@ -1,11 +1,27 @@
 // Tableau pour stocker les prénoms
 let tableauPrenoms = [];
 
+// Affiche message erreur dans div class="erreur" durant 4secondes
+function afficherMessageErreur(message) {
+    let spanErreurMessage = document.getElementById("erreurMessage");
+    if (!spanErreurMessage) {
+        let popup = document.querySelector(".erreur");
+        spanErreurMessage = document.createElement("span");
+        spanErreurMessage.id = "erreurMessage";
+        popup.append(spanErreurMessage);
+    }
+    spanErreurMessage.innerText = message;
+    setTimeout(() => {
+        spanErreurMessage.parentNode.removeChild(spanErreurMessage);
+    }, 4000);
+}
+
 
 function validerPrenom(prenom) {
     let prenomRegExp = new RegExp("^[a-zA-Z0-9_]{1}");
     if (!prenomRegExp.test(prenom)) {
-        throw new Error("Le prénom n'est pas valide.");
+        throw afficherMessageErreur(`Le prénom : ${prenom}, n'est pas valide.`);
+
     }
 }
 

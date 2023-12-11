@@ -34,18 +34,21 @@ const btnReinitialiserTirage = document.getElementById("btnReinitialiserTirage")
 btnReinitialiserTirage.addEventListener('click', () => {
     // Reset tableau
     tableauPrenoms = [];
-    // Supprime affichage des prénoms ajoutés
+    // Supprimer affichage des prénoms ajoutés
     const listePrenoms = document.getElementById('listePrenoms');
     listePrenoms.innerHTML = '';
-    // Supprime affichage des tirages
+    // Supprimer affichage des tirages
     const listePrenomsMelange = document.getElementById('listePrenomsMelange');
     listePrenomsMelange.innerHTML = '';
+    // Supprimer champ de saisie input prenom
+    const inputPrenom = document.getElementById('prenom');
+    inputPrenom.value = "";
 }
 )
 
 
 
-// Gerer les champs vide de saisies et autre
+
 // Try Catch sur les fonctions
 // Gerer tableau vide (ne pas afficher "Nouveau tirage de participant")
 // Gerer tableau impaire pour tirage Paire
