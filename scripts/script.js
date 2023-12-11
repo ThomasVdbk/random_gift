@@ -2,9 +2,18 @@
 let tableauPrenoms = [];
 
 
+function validerPrenom(prenom) {
+    let prenomRegExp = new RegExp("^[a-zA-Z0-9_]{1}");
+    if (!prenomRegExp.test(prenom)) {
+        throw new Error("Le prénom n'est pas valide.");
+    }
+}
+
 function ajouterPrenom() {
     // Récupérer la valeur du champ de texte avec id "prenom" et ajouter le prénom au tableau
-    tableauPrenoms.push(document.getElementById('prenom').value);
+    const prenom = document.getElementById('prenom').value;
+    validerPrenom(prenom);
+    tableauPrenoms.push(prenom);
     // Afficher le tableau dans la console 
     console.log("Tableau de prénoms :", tableauPrenoms);
     // Effacer le champ de texte au click

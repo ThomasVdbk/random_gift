@@ -44,7 +44,7 @@ btnReinitialiserTirage.addEventListener('click', () => {
 )
 
 
-// Creer button nouveau tirage et clear l'ancien
+
 // Gerer les champs vide de saisies et autre
 // Try Catch sur les fonctions
 // Gerer tableau vide (ne pas afficher "Nouveau tirage de participant")
