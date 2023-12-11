@@ -1,4 +1,4 @@
-// Récupérer élément du DOM button 
+// Récupérer élément du DOM button btnValiderPrenom
 const btnValiderPrenom = document.getElementById('btnValiderPrenom');
 
 // Ecouteur sur le button id="btnValiderPrenom" avec fonction fléchée 
@@ -9,6 +9,7 @@ btnValiderPrenom.addEventListener('click', () => {
 });
 
 
+// Récupérer élément du DOM button btnTirerAuSort
 const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 
 // Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
@@ -25,8 +26,11 @@ btnTirerAuSort.addEventListener('click', () => {
     }
 })
 
+
+// Récupérer élément du DOM button btnReinitialiserTirage
 const btnReinitialiserTirage = document.getElementById("btnReinitialiserTirage");
 
+// Ecouteur sur le button id="btnReinitialiserTirage" avec fonction fléchée 
 btnReinitialiserTirage.addEventListener('click', () => {
     // Reset tableau
     tableauPrenoms = [];
