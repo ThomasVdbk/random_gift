@@ -9,7 +9,6 @@ btnValiderPrenom.addEventListener('click', () => {
 });
 
 
-
 const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 
 // Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
@@ -24,8 +23,21 @@ btnTirerAuSort.addEventListener('click', () => {
         // En attente appel fonction tirageChaine
         afficherChaine(tableauMelange);
     }
-
 })
+
+const btnReinitialiserTirage = document.getElementById("btnReinitialiserTirage");
+
+btnReinitialiserTirage.addEventListener('click', () => {
+    // Reset tableau
+    tableauPrenoms = [];
+    // Supprime affichage des prénoms ajoutés
+    const listePrenoms = document.getElementById('listePrenoms');
+    listePrenoms.innerHTML = '';
+    // Supprime affichage des tirages
+    const listePrenomsMelange = document.getElementById('listePrenomsMelange');
+    listePrenomsMelange.innerHTML = '';
+}
+)
 
 
 // Creer button nouveau tirage et clear l'ancien

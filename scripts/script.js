@@ -1,5 +1,5 @@
 // Tableau pour stocker les prénoms
-const tableauPrenoms = [];
+let tableauPrenoms = [];
 
 
 function ajouterPrenom() {
