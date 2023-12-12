@@ -1,0 +1,48 @@
+body {
+    /* Cchemin de l'image */
+    background-image: url('https://images.pexels.com/photos/1303086/pexels-photo-1303086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    /* Ajuste la taille de l'image pour couvrir complètement l'élément */
+    background-size: cover;
+    /* Centre l'image à l'intérieur de l'élément */
+    background-position: top;
+    /* Évite la répétition de l'image si elle est plus petite que l'élément */
+    background-repeat: no-repeat;
+    /* Couleur du texte sur l'image, choisissez une couleur lisible */
+    color: #ffffff;
+    /* Ajoute du rembourrage pour améliorer la lisibilité */
+    padding: 20px;
+    /* Centre le texte à l'intérieur de l'élément */
+    text-align: center;
+    /* Réinitialise la marge par défaut du navigateur */
+    margin: 0;
+}
+
+#btnReinitialiserTirage {
+
+    width: 50px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-image: url('../images/supprimer.png');
+}
+
+.btnTirerAuSort {
+    margin-top: 2em;
+    color: #ffffff;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-image: url('../images/boite-cadeau.png');
+}
