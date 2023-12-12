@@ -2,10 +2,15 @@
 const btnValiderPrenom = document.getElementById('btnValiderPrenom');
 
 // Ecouteur sur le button id="btnValiderPrenom" avec fonction fléchée 
-btnValiderPrenom.addEventListener('click', () => {
-    // Appel de la fonction ajouterPrenom à chaque clic sur le bouton
-    ajouterPrenom();
-    afficherPrenomsAjoute();
+btnValiderPrenom.addEventListener('click', (event) => {
+    try {
+        event.preventDefault();
+        // Appel de la fonction ajouterPrenom à chaque clic sur le bouton
+        ajouterPrenom();
+        afficherPrenomsAjoute();
+    } catch (error) {
+        console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnValiderPrenom")
+    }
 });
 
 
@@ -14,15 +19,19 @@ const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 
 // Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
 btnTirerAuSort.addEventListener('click', () => {
-    const optionTiragePaire = document.getElementById("tiragePaire");
-    const optionTirageChaine = document.getElementById("tirageChaine");
+    try {
+        const optionTiragePaire = document.getElementById("tiragePaire");
+        const optionTirageChaine = document.getElementById("tirageChaine");
 
-    const tableauMelange = melangerTableau();
-    if (optionTiragePaire.checked) {
-        afficherPaire(tableauMelange);
-    } else if (optionTirageChaine.checked) {
-        // En attente appel fonction tirageChaine
-        afficherChaine(tableauMelange);
+        const tableauMelange = melangerTableau();
+        if (optionTiragePaire.checked) {
+            afficherPaire(tableauMelange);
+        } else if (optionTirageChaine.checked) {
+            // En attente appel fonction tirageChaine
+            afficherChaine(tableauMelange);
+        }
+    } catch (error) {
+        console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnTirerAuSort")
     }
 })
 
@@ -32,17 +41,21 @@ const btnReinitialiserTirage = document.getElementById("btnReinitialiserTirage")
 
 // Ecouteur sur le button id="btnReinitialiserTirage" avec fonction fléchée 
 btnReinitialiserTirage.addEventListener('click', () => {
-    // Reset tableau
-    tableauPrenoms = [];
-    // Supprimer affichage des prénoms ajoutés
-    const listePrenoms = document.getElementById('listePrenoms');
-    listePrenoms.innerHTML = '';
-    // Supprimer affichage des tirages
-    const listePrenomsMelange = document.getElementById('listePrenomsMelange');
-    listePrenomsMelange.innerHTML = '';
-    // Supprimer champ de saisie input prenom
-    const inputPrenom = document.getElementById('prenom');
-    inputPrenom.value = "";
+    try {
+        // Reset tableau
+        tableauPrenoms = [];
+        // Supprimer affichage des prénoms ajoutés
+        const listePrenoms = document.getElementById('listePrenoms');
+        listePrenoms.innerHTML = '';
+        // Supprimer affichage des tirages
+        const listePrenomsMelange = document.getElementById('listePrenomsMelange');
+        listePrenomsMelange.innerHTML = '';
+        // Supprimer champ de saisie input prenom
+        const inputPrenom = document.getElementById('prenom');
+        inputPrenom.value = "";
+    } catch (error) {
+        console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnReinitialiserTirage")
+    }
 }
 )
 
