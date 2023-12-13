@@ -25,8 +25,9 @@ function validerPrenom(prenom) {
     try {
         let prenomRegExp = new RegExp("^[a-zA-Z0-9_]{1}");
         if (!prenomRegExp.test(prenom)) {
-            throw afficherMessageErreur(`Le prénom : ${prenom}, n'est pas valide.`);
-        }
+            throw afficherMessageErreur(`Le prénom : " ${prenom} ", n'est pas valide.`);
+            return false;
+        } return true;
     } catch (error) {
         console.error("Script / Une erreur s'est produite dans la function validerPrenom");
     }
@@ -36,12 +37,13 @@ function ajouterPrenom() {
     try {
         // Récupérer la valeur du champ de texte avec id "prenom" et ajouter le prénom au tableau
         const prenom = document.getElementById('prenom').value;
-        validerPrenom(prenom);
-        tableauPrenoms.push(prenom);
-        // Afficher le tableau dans la console 
-        console.log("Tableau de prénoms :", tableauPrenoms);
-        // Effacer le champ de texte au click
-        document.getElementById('prenom').value = '';
+        if (validerPrenom(prenom)) {
+            tableauPrenoms.push(prenom);
+            // Afficher le tableau dans la console 
+            console.log("Tableau de prénoms :", tableauPrenoms);
+            // Effacer le champ de texte au click
+            document.getElementById('prenom').value = '';
+        }
     } catch (error) {
         console.error("Script / Une erreur s'est produite dans la function ajouterPrenom");
     }
