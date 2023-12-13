@@ -9,6 +9,9 @@
 
 
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap" rel="stylesheet">
     <script src="scripts/script.js" defer></script>
     <script src="main.js" defer></script>
 </head>
@@ -21,47 +24,48 @@
     </header>
 
     <main>
-        <div>
-            <h2>Tirage au sort</h2>
-            <p>Vous vous lancez dans un tirage au sort en famille ou avec vos amis et
-                vous souhaitez désigner des Offreur/euse et des hotes/tesses, alors vous êtes au bon endroit.</p>
-        </div>
-
-        <div class="reinitialiserTirage">
-            <button type="button" id="btnReinitialiserTirage">Réinitialiser la liste</button>
-        </div>
-
-        <!--Zone de choix deroulement du tirage-->
-        <div class="zoneOptions">
-            <h2>Option de tirage</h2>
-            <P>Choisissez votre option de tirage, tirage en paire (échange mutuel)
-                ou tirage en chaine (échange pas nécessairement vis-à-vis de la même personne). </P>
-            <div class="optionSource">
-                <input type="radio" name="optionSource" id="tiragePaire" value="1" checked>
-                <label for="tiragePaire">Tirage Paire</label>
-                <input type="radio" name="optionSource" id="tirageChaine" value="2">
-                <label for="tirageChaine">Tirage Chaine</label>
+        <div class="conteneur">
+            <div class="box">
+                <h2>Tirage au sort</h2>
+                <p>Vous vous lancez dans un tirage au sort en famille ou avec vos amis et
+                    vous souhaitez désigner des Offreur/euse et des hotes/tesses, alors vous êtes au bon endroit.</p>
             </div>
-        </div>
 
-        <!--Formulaire pour ajouter des participants-->
-        <form id="formulairePrenom">
-            <h2>Ajouter des participants</h2>
-            <label for="prenom">Saisissez votre prénom :</label>
-            <input type="text" id="prenom" name="prenom">
-            <button autofocus type="button" id="btnValiderPrenom">Ajouter</button>
-            <div class="erreur">
+            <div class="box">
+                <button type="button" id="btnReinitialiserTirage" title="Réinitialiser la liste"></button>
             </div>
-        </form>
 
-        <div class="tirage">
-            <button class="btnTirerAuSort" type="button" id="btnTirerAuSort">Tirage</button>
+            <!--Zone de choix deroulement du tirage-->
+            <div class="box">
+                <h2>Option de tirage</h2>
+                <P>Choisissez votre option de tirage, tirage en paire (échange mutuel)
+                    ou tirage en chaine (échange pas nécessairement vis-à-vis de la même personne). </P>
+                <div class="optionSource">
+                    <input type="radio" name="optionSource" id="tiragePaire" value="1" checked>
+                    <label for="tiragePaire">Tirage Paire</label>
+                    <input type="radio" name="optionSource" id="tirageChaine" value="2">
+                    <label for="tirageChaine">Tirage Chaine</label>
+                </div>
+            </div>
+
+            <!--Formulaire pour ajouter des participants-->
+            <form class="box">
+                <h2>Ajouter des participants</h2>
+                <label for="prenom">Saisissez les prénoms :</label>
+                <input type="text" id="prenom" name="prenom">
+                <button autofocus type="button" id="btnValiderPrenom" title="Ajouter un participant"></button>
+                <div class="erreur">
+                </div>
+            </form>
+
+            <div class="box">
+                <button class="btnTirerAuSort" type="button" id="btnTirerAuSort" title="Lancer le tirage"></button>
+            </div>
+            <!--Affichage unordered list des prénoms ajoutés-->
+            <ul class="box" id="listePrenoms"></ul>
+            <!--Affichage ordered list des prenoms mélangés et assemblés par paire-->
+            <div class="box" id="listePrenomsMelange"></div>
         </div>
-        <!--Affichage unordered list des prénoms ajoutés-->
-        <ul id="listePrenoms"></ul>
-        <!--Affichage ordered list des prenoms mélangés et assemblés par paire-->
-        <div id="listePrenomsMelange"></div>
-
     </main>
 
     <footer>
