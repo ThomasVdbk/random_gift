@@ -18,7 +18,7 @@ btnValiderPrenom.addEventListener('click', (event) => {
 const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 
 // Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
-btnTirerAuSort.addEventListener('click', () => {
+btnTirerAuSort.addEventListener('click', (event) => {
     try {
         const optionTiragePaire = document.getElementById("tiragePaire");
         const optionTirageChaine = document.getElementById("tirageChaine");

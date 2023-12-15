@@ -25,7 +25,7 @@
 
     <main class="mainConteneur">
         <div class="conteneurOne">
-            <div class="box">
+            <div class="boxIntro">
                 <h2>Tirage au sort</h2>
                 <p>Vous vous lancez dans un tirage au sort en famille ou avec vos amis et
                     vous souhaitez désigner des Offreur/euse et des hotes/tesses, alors vous êtes au bon endroit.</p>
@@ -33,41 +33,45 @@
 
 
             <!--Zone de choix deroulement du tirage-->
-            <div class="box">
+            <div class="boxOptions">
                 <h2>Option de tirage</h2>
                 <P>Choisissez votre option de tirage, tirage en paire (échange mutuel)
                     ou tirage en chaine (échange pas nécessairement vis-à-vis de la même personne). </P>
-
                 <div>
                     <button type="button" id="btnReinitialiserTirage" title="Réinitialiser la liste"></button>
                 </div>
-                <input type="radio" name="optionSource" id="tiragePaire" value="1" checked>
-                <label for="tiragePaire">Tirage Paire</label>
-                <input type="radio" name="optionSource" id="tirageChaine" value="2">
-                <label for="tirageChaine">Tirage Chaine</label>
+                <div>
+                    <input type="radio" name="optionSource" id="tiragePaire" value="1">
+                    <label for="tiragePaire">Tirage Paire</label>
+                </div>
+                <div>
+                    <input type="radio" name="optionSource" id="tirageChaine" value="2" checked>
+                    <label for="tirageChaine">Tirage Chaine</label>
+                </div>
             </div>
 
 
             <!--Formulaire pour ajouter des participants-->
-            <form class="box">
-                <h2>Ajouter des participants</h2>
+            <form class="boxAjouterParticipants">
                 <label for="prenom">Saisissez les prénoms :</label>
                 <input type="text" id="prenom" name="prenom">
+                <div class="erreur"></div>
                 <button autofocus type="button" id="btnValiderPrenom" title="Ajouter un participant"></button>
-                <div class="erreur">
-                </div>
+                <button class="btnTirerAuSort" type="button" id="btnTirerAuSort" title="Lancer le tirage"></button>
+
             </form>
 
         </div>
+
         <div class="conteneurTwo">
-            <div class="box">
-                <button class="btnTirerAuSort" type="button" id="btnTirerAuSort" title="Lancer le tirage"></button>
-            </div>
             <!--Affichage unordered list des prénoms ajoutés-->
-            <ul class="box" id="listePrenoms"></ul>
-            <!--Affichage ordered list des prenoms mélangés et assemblés par paire-->
-            <div class="box" id="listePrenomsMelange"></div>
+            <ul class="boxParticipants" id="listePrenoms"></ul>
         </div>
+        <div class="conteneurThree">
+            <!--Affichage ordered list des prenoms mélangés et assemblés par paire-->
+            <div class="boxResultat" id="listePrenomsMelange"></div>
+        </div>
+
     </main>
 
     <footer>

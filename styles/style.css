@@ -10,52 +10,12 @@ body {
     background-repeat: no-repeat;
     /* Couleur du texte sur l'image, choisissez une couleur lisible */
     color: #ffffff;
-    /* Ajoute du rembourrage pour améliorer la lisibilité */
-    padding: 20px;
     /* Centre le texte à l'intérieur de l'élément */
-    text-align: start;
+    /* text-align: start; */
     /* Réinitialise la marge par défaut du navigateur */
-    margin: 0;
+    /* margin: 0; */
 }
 
-header {
-    display: flex;
-    justify-content: center;
-}
-
-.mainConteneur {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-evenly;
-
-}
-
-.conteneurOne {
-    width: 30%;
-}
-
-.conteneurTwo {
-    border-radius: 20%;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-#btnValiderPrenom {
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-image: url('../images/ajouter-un-utilisateur.png');
-}
 
 #btnReinitialiserTirage {
     width: 50px;
@@ -71,12 +31,24 @@ header {
     background-image: url('../images/supprimer.png');
 }
 
-.btnTirerAuSort {
-    margin-top: 2em;
-    color: #ffffff;
-    font-weight: bold;
+#btnValiderPrenom {
     width: 50px;
     height: 50px;
+    margin: 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-image: url('../images/ajouter-un-utilisateur.png');
+}
+
+#btnTirerAuSort {
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    color: #ffffff;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
@@ -86,7 +58,78 @@ header {
     background-image: url('../images/boite-cadeau.png');
 }
 
-.btnTirerAuSort:focus {
+#btnTirerAuSort:focus {
     background-color: darkkhaki;
     border-radius: 20%;
+}
+
+.erreur {
+    color: red;
+    font-weight: bold;
+}
+
+/* *******Mise en forme avec flexbox en ordre de poupée russe******* */
+/* Les conteneurs */
+.mainConteneur {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.conteneurOne,
+.conteneurTwo,
+.conteneurThree {
+    margin: 5px;
+    background-color: blueviolet;
+}
+
+.conteneurOne {
+    width: 30%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.conteneurTwo {
+    flex-grow: 1;
+}
+
+.conteneurThree {
+    flex-grow: 1;
+}
+
+/* Les box  */
+.boxIntro,
+.boxOptions,
+.boxAjouterParticipants,
+.boxParticipants,
+.boxResultat {
+    background-color: aqua;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+}
+
+h2,
+h3 {
+    margin: 0px;
+}
+
+.boxAjouterParticipants {
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+.boxParticipants,
+.boxResultat {
+    align-content: center;
 }
