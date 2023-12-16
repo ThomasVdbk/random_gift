@@ -4,7 +4,7 @@ let nbParticipant = 0;
 // Récupérer élément du DOM button btnValiderPrenom
 const btnValiderPrenom = document.getElementById('btnValiderPrenom');
 
-// Ecouteur sur le button id="btnValiderPrenom" avec fonction fléchée 
+// Ecouteur sur le button id="btnValiderPrenom" avec fonction fléchée
 btnValiderPrenom.addEventListener('click', (event) => {
     try {
         event.preventDefault();
@@ -12,7 +12,9 @@ btnValiderPrenom.addEventListener('click', (event) => {
         ajouterPrenom();
         nbParticipant++;
         afficherPrenomsAjoute();
-        afficherConteneurInvisible();
+        if (nbParticipant === 1) {
+            supprimerClassInvisible();
+        }
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnValiderPrenom")
     }
@@ -23,14 +25,17 @@ let nbClickBtnTirerAuSort = 0;
 // Récupérer élément du DOM button btnTirerAuSort
 const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 
-// Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
+// Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée
 btnTirerAuSort.addEventListener('click', (event) => {
     try {
         nbClickBtnTirerAuSort++;
+        if (nbClickBtnTirerAuSort === 1) {
+            supprimerClassInvisible();
+        }
         const optionTiragePaire = document.getElementById("tiragePaire");
         const optionTirageChaine = document.getElementById("tirageChaine");
-
         const tableauMelange = melangerTableau();
+
         if (optionTiragePaire.checked) {
             afficherPaire(tableauMelange);
         } else if (optionTirageChaine.checked) {
@@ -38,7 +43,7 @@ btnTirerAuSort.addEventListener('click', (event) => {
             afficherChaine(tableauMelange);
 
         }
-        afficherConteneurInvisible();
+
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnTirerAuSort")
     }
@@ -48,7 +53,7 @@ btnTirerAuSort.addEventListener('click', (event) => {
 // Récupérer élément du DOM button btnReinitialiserTirage
 const btnReinitialiserTirage = document.getElementById("btnReinitialiserTirage");
 
-// Ecouteur sur le button id="btnReinitialiserTirage" avec fonction fléchée 
+// Ecouteur sur le button id="btnReinitialiserTirage" avec fonction fléchée
 btnReinitialiserTirage.addEventListener('click', () => {
     try {
         // Reset tableau
