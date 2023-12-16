@@ -128,7 +128,17 @@ function afficherChaine(tableau) {
 }
 
 
-
+function afficherConteneurInvisible() {
+    const conteneurInvisible = document.querySelector('.invisible');
+    if (conteneurInvisible.innerHTML.trim() !== '' && tableauPrenoms.length === 1) {
+        // Si la div est remplie, supprime la classe "invisible"
+        conteneurInvisible.classList.remove('invisible');
+    } else if (conteneurInvisible !== null && nbClickBtnTirerAuSort >= 1) {
+        conteneurInvisible.classList.remove('invisible');
+    } else {
+        Promise.resolve();
+    }
+}
 
 
 

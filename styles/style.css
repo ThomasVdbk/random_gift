@@ -23,6 +23,10 @@ header {
     justify-content: center;
 }
 
+.invisible {
+    display: none;
+}
+
 h2,
 h3 {
     margin: 0px;

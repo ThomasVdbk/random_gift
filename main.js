@@ -1,3 +1,6 @@
+let nbParticipant = 0;
+
+
 // Récupérer élément du DOM button btnValiderPrenom
 const btnValiderPrenom = document.getElementById('btnValiderPrenom');
 
@@ -7,12 +10,15 @@ btnValiderPrenom.addEventListener('click', (event) => {
         event.preventDefault();
         // Appel de la fonction ajouterPrenom à chaque clic sur le bouton
         ajouterPrenom();
+        nbParticipant++;
         afficherPrenomsAjoute();
+        afficherConteneurInvisible();
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnValiderPrenom")
     }
 });
 
+let nbClickBtnTirerAuSort = 0;
 
 // Récupérer élément du DOM button btnTirerAuSort
 const btnTirerAuSort = document.getElementById("btnTirerAuSort");
@@ -20,6 +26,7 @@ const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 // Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
 btnTirerAuSort.addEventListener('click', (event) => {
     try {
+        nbClickBtnTirerAuSort++;
         const optionTiragePaire = document.getElementById("tiragePaire");
         const optionTirageChaine = document.getElementById("tirageChaine");
 
@@ -29,7 +36,9 @@ btnTirerAuSort.addEventListener('click', (event) => {
         } else if (optionTirageChaine.checked) {
             // En attente appel fonction tirageChaine
             afficherChaine(tableauMelange);
+
         }
+        afficherConteneurInvisible();
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnTirerAuSort")
     }
@@ -60,7 +69,7 @@ btnReinitialiserTirage.addEventListener('click', () => {
 )
 
 
-
+// Rendre invisible le conteneurTwo et conteneurThree avec la classe invisible, déja en display none CSS
 
 // Try Catch sur les fonctions
 // Gerer tableau vide (ne pas afficher "Nouveau tirage de participant")
