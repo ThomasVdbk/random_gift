@@ -1,35 +1,49 @@
+let nbParticipant = 0;
+
+
 // Récupérer élément du DOM button btnValiderPrenom
 const btnValiderPrenom = document.getElementById('btnValiderPrenom');
 
-// Ecouteur sur le button id="btnValiderPrenom" avec fonction fléchée 
+// Ecouteur sur le button id="btnValiderPrenom" avec fonction fléchée
 btnValiderPrenom.addEventListener('click', (event) => {
     try {
         event.preventDefault();
         // Appel de la fonction ajouterPrenom à chaque clic sur le bouton
         ajouterPrenom();
+        nbParticipant++;
         afficherPrenomsAjoute();
+        if (nbParticipant === 1) {
+            supprimerClassInvisible();
+        }
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnValiderPrenom")
     }
 });
 
+let nbClickBtnTirerAuSort = 0;
 
 // Récupérer élément du DOM button btnTirerAuSort
 const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 
-// Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée 
+// Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée
 btnTirerAuSort.addEventListener('click', (event) => {
     try {
+        nbClickBtnTirerAuSort++;
+        if (nbClickBtnTirerAuSort === 1) {
+            supprimerClassInvisible();
+        }
         const optionTiragePaire = document.getElementById("tiragePaire");
         const optionTirageChaine = document.getElementById("tirageChaine");
-
         const tableauMelange = melangerTableau();
+
         if (optionTiragePaire.checked) {
             afficherPaire(tableauMelange);
         } else if (optionTirageChaine.checked) {
             // En attente appel fonction tirageChaine
             afficherChaine(tableauMelange);
+
         }
+
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnTirerAuSort")
     }
@@ -39,7 +53,7 @@ btnTirerAuSort.addEventListener('click', (event) => {
 // Récupérer élément du DOM button btnReinitialiserTirage
 const btnReinitialiserTirage = document.getElementById("btnReinitialiserTirage");
 
-// Ecouteur sur le button id="btnReinitialiserTirage" avec fonction fléchée 
+// Ecouteur sur le button id="btnReinitialiserTirage" avec fonction fléchée
 btnReinitialiserTirage.addEventListener('click', () => {
     try {
         // Reset tableau
@@ -60,7 +74,7 @@ btnReinitialiserTirage.addEventListener('click', () => {
 )
 
 
-
+// Rendre invisible le conteneurTwo et conteneurThree avec la classe invisible, déja en display none CSS
 
 // Try Catch sur les fonctions
 // Gerer tableau vide (ne pas afficher "Nouveau tirage de participant")

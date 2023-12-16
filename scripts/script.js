@@ -128,7 +128,17 @@ function afficherChaine(tableau) {
 }
 
 
-
+function supprimerClassInvisible() {
+    try {
+        const conteneurInvisible = document.querySelector('.invisible');
+        if (conteneurInvisible.innerHTML.trim() !== '') {
+            // Si la div est remplie, supprime la classe "invisible"
+            conteneurInvisible.classList.remove('invisible');
+        }
+    } catch (error) {
+        console.error("Script / Une erreur s'est produite dans la function supprimerClassInvisible");
+    }
+}
 
 
 
