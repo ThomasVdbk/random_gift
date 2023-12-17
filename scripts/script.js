@@ -1,5 +1,15 @@
 // Tableau pour stocker les prénoms
 let tableauPrenoms = [];
+// Variable pour stocker le compteur de participant
+let compteurParticipants = 0;
+
+
+// Fonction appelée à chaque clic sur le bouton
+function incrementerCompteur() {
+    compteurParticipants++;
+    // Met à jour le texte affichant le compteur
+}
+
 
 // Affiche message erreur dans div class="erreur" durant 4secondes
 function afficherMessageErreur(message) {
@@ -26,8 +36,9 @@ function validerPrenom(prenom) {
         let prenomRegExp = new RegExp("^[a-zA-Z0-9_]{1}");
         if (!prenomRegExp.test(prenom)) {
             throw afficherMessageErreur(`Le prénom : " ${prenom} ", n'est pas valide.`);
-            return false;
-        } return true;
+        }
+        // true utilisé dans ajouterPrenom() condition pour push dans tableauPrenoms
+        return true
     } catch (error) {
         console.error("Script / Une erreur s'est produite dans la function validerPrenom");
     }
@@ -39,8 +50,9 @@ function ajouterPrenom() {
         const prenom = document.getElementById('prenom').value;
         if (validerPrenom(prenom)) {
             tableauPrenoms.push(prenom);
+            incrementerCompteur();
             // Afficher le tableau dans la console 
-            console.log("Tableau de prénoms :", tableauPrenoms);
+            console.log(`Tableau de prénoms : ${compteurParticipants}`, tableauPrenoms);
             // Effacer le champ de texte au click
             document.getElementById('prenom').value = '';
         }
@@ -57,7 +69,7 @@ function afficherPrenomsAjoute() {
         listePrenoms.innerHTML = '';
         // Ajouter titre dès le premier prénom saisi
         const titleListItem = document.createElement('h3');
-        titleListItem.textContent = "Liste des participants ajoutés : ";
+        titleListItem.textContent = `Nombre de participants ajoutés =  ${compteurParticipants}`;
         listePrenoms.appendChild(titleListItem);
         // Ajouter chaque prénom à la liste
         tableauPrenoms.forEach((prenom) => {
@@ -137,6 +149,16 @@ function supprimerClassInvisible() {
         }
     } catch (error) {
         console.error("Script / Une erreur s'est produite dans la function supprimerClassInvisible");
+    }
+}
+
+function ajouterClassInvisible() {
+    try {
+
+
+
+    } catch (error) {
+        console.error("Script / Une erreur s'est produite dans la function ajouterClassInvisible");
     }
 }
 

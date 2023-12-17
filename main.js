@@ -1,3 +1,4 @@
+//Compteur nombre de participant pour V2
 let nbParticipant = 0;
 
 
@@ -12,6 +13,7 @@ btnValiderPrenom.addEventListener('click', (event) => {
         ajouterPrenom();
         nbParticipant++;
         afficherPrenomsAjoute();
+        // Affiche les prenoms ajoutés en supprimant la class .invisible du conteneurTwo au premier participant
         if (nbParticipant === 1) {
             supprimerClassInvisible();
         }
@@ -28,6 +30,7 @@ const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 // Ecouteur sur le button id="btnTirerAuSort" avec fonction fléchée
 btnTirerAuSort.addEventListener('click', (event) => {
     try {
+        // Affiche le resultat du tirage en supprimant la class .invisible du conteneurThree au premier click 
         nbClickBtnTirerAuSort++;
         if (nbClickBtnTirerAuSort === 1) {
             supprimerClassInvisible();
