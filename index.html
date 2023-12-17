@@ -31,7 +31,6 @@
                     vous souhaitez désigner des Offreur/euse et des hotes/tesses, alors vous êtes au bon endroit.</p>
             </div>
 
-
             <!--Zone de choix deroulement du tirage-->
             <div class="boxOptions">
                 <h2>Option de tirage</h2>
@@ -50,7 +49,6 @@
                 </div>
             </div>
 
-
             <!--Formulaire pour ajouter des participants-->
             <form class="boxAjouterParticipants">
                 <label for="prenom">Saisissez les prénoms :</label>
@@ -58,15 +56,16 @@
                 <div class="erreur"></div>
                 <button autofocus type="button" id="btnValiderPrenom" title="Ajouter un participant"></button>
                 <button class="btnTirerAuSort" type="button" id="btnTirerAuSort" title="Lancer le tirage"></button>
-
             </form>
-
         </div>
 
+        <!--invisible tant que la classe du même nom est presente-->
         <div class="conteneurTwo invisible">
-            <!--Affichage unordered list des prénoms ajoutés-->
+            <!--Affichage unordered list des prénoms ajoutés et affichage compteurParticipants-->
             <ul class="boxParticipants" id="listePrenoms"></ul>
         </div>
+
+        <!--invisible tant que la classe du même nom est presente-->
         <div class="conteneurThree invisible">
             <!--Affichage ordered list des prenoms mélangés et assemblés par paire-->
             <div class="boxResultat" id="listePrenomsMelange"></div>
