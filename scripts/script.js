@@ -20,11 +20,11 @@ function afficherMessageErreur(message) {
             spanErreurMessage = document.createElement("span");
             spanErreurMessage.id = "erreurMessage";
             popup.append(spanErreurMessage);
+            spanErreurMessage.innerText = message;
+            setTimeout(() => {
+                spanErreurMessage.parentNode.removeChild(spanErreurMessage);
+            }, 4000);
         }
-        spanErreurMessage.innerText = message;
-        setTimeout(() => {
-            spanErreurMessage.parentNode.removeChild(spanErreurMessage);
-        }, 4000);
     } catch (error) {
         console.error("Script / Une erreur s'est produite dans la function afficherMessageErreur");
     }
