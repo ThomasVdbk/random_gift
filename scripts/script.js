@@ -7,35 +7,36 @@ let compteurParticipants = 0;
 // Fonction appelée à chaque clic sur le bouton
 function incrementerCompteur() {
     compteurParticipants++;
-    // Met à jour le texte affichant le compteur
 }
 
 
-// Affiche message erreur dans div class="erreur" durant 4secondes
-function afficherMessageErreur(message) {
+// Affiche message erreur dans div class="erreur" durant 5 secondes
+function afficherMessageErreur(indexDiv, message) {
     try {
         let spanErreurMessage = document.getElementById("erreurMessage");
+        // Si pas créé alors génére le span id="erreurMessage"
         if (!spanErreurMessage) {
-            let popup = document.querySelector(".erreur");
+            let popup = document.querySelectorAll(".erreur")[indexDiv];
             spanErreurMessage = document.createElement("span");
             spanErreurMessage.id = "erreurMessage";
             popup.append(spanErreurMessage);
             spanErreurMessage.innerText = message;
+            // Supprime le span après 5 secondes
             setTimeout(() => {
                 spanErreurMessage.parentNode.removeChild(spanErreurMessage);
-            }, 4000);
+            }, 5000);
         }
     } catch (error) {
         console.error("Script / Une erreur s'est produite dans la function afficherMessageErreur");
     }
 }
 
-
 function validerPrenom(prenom) {
     try {
         let prenomRegExp = new RegExp("^[a-zA-Z0-9_]{1}");
+        // Si le test ne respecte pas RegExp alors creer span id="erreurMessage 
         if (!prenomRegExp.test(prenom)) {
-            throw afficherMessageErreur(`Le prénom : " ${prenom} ", n'est pas valide.`);
+            throw afficherMessageErreur(0, `Le prénom : " ${prenom} ", n'est pas valide.`);
         }
         // true utilisé dans ajouterPrenom() condition pour push dans tableauPrenoms
         return true
@@ -44,6 +45,7 @@ function validerPrenom(prenom) {
     }
 }
 
+// Ajouter prenom au tableau si respect RegExp de validerPrenom(prenom)
 function ajouterPrenom() {
     try {
         // Récupérer la valeur du champ de texte avec id "prenom" et ajouter le prénom au tableau
@@ -98,6 +100,7 @@ function melangerTableau() {
     }
 };
 
+
 function afficherPaire(tableau) {
     try {
         const listePrenomsMelange = document.getElementById('listePrenomsMelange');
@@ -109,8 +112,18 @@ function afficherPaire(tableau) {
         listePrenomsMelange.appendChild(olListItem);
         for (let k = 0; k < tableau.length; k += 2) {
             const listItem = document.createElement('li');
-            listItem.textContent = tableau[k] + " et " + tableau[k + 1];
-            olListItem.appendChild(listItem);
+            // Si le dernier k+1 est undefined (tableau impaire), alors affiche un text de substitution a undefined + génére message erreur
+            if (tableau[k + 1] !== undefined) {
+                listItem.textContent = tableau[k] + " et " + tableau[k + 1];
+                olListItem.appendChild(listItem);
+            } else {
+                listItem.innerHTML = tableau[k] + " et <span class='rouge'>Invité(e) Mystère</span>";
+                olListItem.appendChild(listItem);
+                const divErreur = document.createElement('div');
+                divErreur.classList.add('erreur');
+                titleListItem.appendChild(divErreur);
+                throw afficherMessageErreur(1, `Ajouter un participant pour remplacer "Invité(e) Mystere"`);
+            }
         }
     } catch (error) {
         console.error("Script / Une erreur s'est produite dans la function afficherPaire");
@@ -141,7 +154,7 @@ function afficherChaine(tableau) {
     }
 }
 
-
+// Supprimer class="invisible" pour rendre visible
 function supprimerClassInvisible(conteneur) {
     try {
         const conteneurInvisible = document.querySelector(conteneur);
@@ -154,6 +167,7 @@ function supprimerClassInvisible(conteneur) {
     }
 }
 
+// Ajouter class="invisible" pour rendre invisible
 function ajouterClassInvisible(conteneur) {
     try {
         const conteneurDevenirInvisible = document.querySelector(conteneur);
