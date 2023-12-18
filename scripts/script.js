@@ -142,9 +142,9 @@ function afficherChaine(tableau) {
 }
 
 
-function supprimerClassInvisible() {
+function supprimerClassInvisible(conteneur) {
     try {
-        const conteneurInvisible = document.querySelector('.invisible');
+        const conteneurInvisible = document.querySelector(conteneur);
         if (conteneurInvisible.innerHTML.trim() !== '') {
             // Si la div est remplie, supprime la classe "invisible"
             conteneurInvisible.classList.remove('invisible');
@@ -157,7 +157,6 @@ function supprimerClassInvisible() {
 function ajouterClassInvisible(conteneur) {
     try {
         const conteneurDevenirInvisible = document.querySelector(conteneur);
-        console.log(conteneurDevenirInvisible)
         if (!conteneurDevenirInvisible.classList.contains('invisible')) {
             conteneurDevenirInvisible.classList.add('invisible')
         }

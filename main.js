@@ -9,8 +9,9 @@ btnValiderPrenom.addEventListener('click', (event) => {
         ajouterPrenom();
         afficherPrenomsAjoute();
         // Affiche les prenoms ajoutés en supprimant la class .invisible du conteneurTwo au premier participant
+        const conteneurDevenirVisible = '.conteneurTwo';
         if (compteurParticipants === 1) {
-            supprimerClassInvisible();
+            supprimerClassInvisible(conteneurDevenirVisible);
         }
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnValiderPrenom")
@@ -27,8 +28,9 @@ btnTirerAuSort.addEventListener('click', (event) => {
     try {
         // Affiche le resultat du tirage en supprimant la class .invisible du conteneurThree au premier click 
         nbClickBtnTirerAuSort++;
+        const conteneurDevenirVisible = '.conteneurThree';
         if (nbClickBtnTirerAuSort > 0 && compteurParticipants > 0) {
-            supprimerClassInvisible();
+            supprimerClassInvisible(conteneurDevenirVisible);
         }
         const optionTiragePaire = document.getElementById("tiragePaire");
         const optionTirageChaine = document.getElementById("tirageChaine");
@@ -53,6 +55,8 @@ btnReinitialiserTirage.addEventListener('click', () => {
     try {
         // Reset tableau
         tableauPrenoms = [];
+        // Mettre compteurParticipants a zero
+        compteurParticipants = 0;
         // Supprimer affichage des prénoms ajoutés
         const listePrenoms = document.getElementById('listePrenoms');
         listePrenoms.innerHTML = '';
