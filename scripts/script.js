@@ -98,12 +98,12 @@ function melangerTableau() {
     }
 };
 
-
 function afficherPaire(tableau) {
     try {
         const listePrenomsMelange = document.getElementById('listePrenomsMelange');
+        listePrenomsMelange.innerHTML = '';
         const titleListItem = document.createElement('h3');
-        titleListItem.textContent = "Nouveau tirage de participants en paire";
+        titleListItem.textContent = "Nouveau tirage de participants en Paire";
         listePrenomsMelange.appendChild(titleListItem);
         const olListItem = document.createElement('ol');
         listePrenomsMelange.appendChild(olListItem);
@@ -120,8 +120,10 @@ function afficherPaire(tableau) {
 
 function afficherChaine(tableau) {
     try {
+        const listePrenomsMelange = document.getElementById('listePrenomsMelange');
+        listePrenomsMelange.innerHTML = '';
         const titleListItem = document.createElement('h3');
-        titleListItem.textContent = "Nouveau tirage de participants en chaine";
+        titleListItem.textContent = "Nouveau tirage de participants en Chaine";
         listePrenomsMelange.appendChild(titleListItem);
         const olListItem = document.createElement('ol');
         listePrenomsMelange.appendChild(olListItem);
@@ -152,11 +154,13 @@ function supprimerClassInvisible() {
     }
 }
 
-function ajouterClassInvisible() {
+function ajouterClassInvisible(conteneur) {
     try {
-
-
-
+        const conteneurDevenirInvisible = document.querySelector(conteneur);
+        console.log(conteneurDevenirInvisible)
+        if (!conteneurDevenirInvisible.classList.contains('invisible')) {
+            conteneurDevenirInvisible.classList.add('invisible')
+        }
     } catch (error) {
         console.error("Script / Une erreur s'est produite dans la function ajouterClassInvisible");
     }

@@ -1,7 +1,3 @@
-//Compteur nombre de participant pour V2
-let nbParticipant = 0;
-
-
 // Récupérer élément du DOM button btnValiderPrenom
 const btnValiderPrenom = document.getElementById('btnValiderPrenom');
 
@@ -11,10 +7,9 @@ btnValiderPrenom.addEventListener('click', (event) => {
         event.preventDefault();
         // Appel de la fonction ajouterPrenom à chaque clic sur le bouton
         ajouterPrenom();
-        nbParticipant++;
         afficherPrenomsAjoute();
         // Affiche les prenoms ajoutés en supprimant la class .invisible du conteneurTwo au premier participant
-        if (nbParticipant === 1) {
+        if (compteurParticipants === 1) {
             supprimerClassInvisible();
         }
     } catch (error) {
@@ -32,7 +27,7 @@ btnTirerAuSort.addEventListener('click', (event) => {
     try {
         // Affiche le resultat du tirage en supprimant la class .invisible du conteneurThree au premier click 
         nbClickBtnTirerAuSort++;
-        if (nbClickBtnTirerAuSort === 1) {
+        if (nbClickBtnTirerAuSort > 0 && compteurParticipants > 0) {
             supprimerClassInvisible();
         }
         const optionTiragePaire = document.getElementById("tiragePaire");
@@ -42,11 +37,8 @@ btnTirerAuSort.addEventListener('click', (event) => {
         if (optionTiragePaire.checked) {
             afficherPaire(tableauMelange);
         } else if (optionTirageChaine.checked) {
-            // En attente appel fonction tirageChaine
             afficherChaine(tableauMelange);
-
         }
-
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnTirerAuSort")
     }
@@ -70,6 +62,11 @@ btnReinitialiserTirage.addEventListener('click', () => {
         // Supprimer champ de saisie input prenom
         const inputPrenom = document.getElementById('prenom');
         inputPrenom.value = "";
+        // Rendre invisible les conteneurs de participants et résultat tirage
+        let conteneur = '.conteneurTwo';
+        ajouterClassInvisible(conteneur);
+        conteneur = '.conteneurThree';
+        ajouterClassInvisible(conteneur);
     } catch (error) {
         console.error("Main / Une erreur s'est produite dans l'écouteur d'événement btnReinitialiserTirage")
     }
