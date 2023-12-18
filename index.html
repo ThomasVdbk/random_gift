@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Random Gift</title>
 
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap" rel="stylesheet">
+    <script src="scripts/script.js" defer></script>
     <script src="main.js" defer></script>
 </head>
 
@@ -14,24 +20,56 @@
 
     <header>
         <h1>Random Gift</h1>
+
     </header>
 
-    <main>
-        <div>
-            <h2>Tirage au sort</h2>
-            <p>Vous vous lancez dans un tirage au sort en famille ou avec vos amis et
-                vous souhaitez désigner des Offreur/euse et des hotes/tesses, alors vous êtes au bon endroit.</p>
+    <main class="mainConteneur">
+        <div class="conteneurOne">
+            <div class="boxIntro">
+                <h2>Tirage au sort</h2>
+                <p>Vous vous lancez dans un tirage au sort en famille ou avec vos amis et
+                    vous souhaitez désigner des Offreur/euse et des hotes/tesses, alors vous êtes au bon endroit.</p>
+            </div>
+
+            <!--Zone de choix deroulement du tirage-->
+            <div class="boxOptions">
+                <h2>Option de tirage</h2>
+                <P>Choisissez votre option de tirage, tirage en paire (échange mutuel)
+                    ou tirage en chaine (échange pas nécessairement vis-à-vis de la même personne). </P>
+                <div>
+                    <button type="button" id="btnReinitialiserTirage" title="Réinitialiser la liste"></button>
+                </div>
+                <div>
+                    <input type="radio" name="optionSource" id="tiragePaire" value="1">
+                    <label for="tiragePaire">Tirage Paire</label>
+                </div>
+                <div>
+                    <input type="radio" name="optionSource" id="tirageChaine" value="2" checked>
+                    <label for="tirageChaine">Tirage Chaine</label>
+                </div>
+            </div>
+
+            <!--Formulaire pour ajouter des participants-->
+            <form class="boxAjouterParticipants">
+                <label for="prenom">Saisissez les prénoms : </label>
+                <input type="text" id="prenom" name="prenom">
+                <div class="erreur"></div>
+                <button autofocus type="button" id="btnValiderPrenom" title="Ajouter un participant"></button>
+                <button class="btnTirerAuSort" type="button" id="btnTirerAuSort" title="Lancer le tirage"></button>
+            </form>
         </div>
 
-        <!--Formulaire pour ajouter des participants-->
-        <form id="formulairePrenom">
-            <label for="prenom">Saisissez votre prénom :</label>
-            <input type="text" id="prenom" name="prenom">
+        <!--invisible tant que la classe du même nom est presente-->
+        <div class="conteneurTwo invisible">
+            <!--Affichage unordered list des prénoms ajoutés et affichage compteurParticipants-->
+            <ul class="boxParticipants" id="listePrenoms"></ul>
+        </div>
 
-            <button type="button" onclick="ajouterPrenom()">Ajouter</button>
-        </form>
-
-
+        <!--invisible tant que la classe du même nom est presente-->
+        <div class="conteneurThree invisible">
+            <!--Affichage ordered list des prenoms mélangés et assemblés par paire-->
+            <div class="boxResultat" id="listePrenomsMelange"></div>
+        </div>
 
     </main>
 

@@ -1,0 +1,155 @@
+body {
+    font-family: 'Preahvihear', sans-serif;
+    /* Cchemin de l'image */
+    background-image: url('https://images.pexels.com/photos/1303086/pexels-photo-1303086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    /* Ajuste la taille de l'image pour couvrir complètement l'élément */
+    background-size: cover;
+    /* Centre l'image à l'intérieur de l'élément */
+    background-position: top;
+    /* Évite la répétition de l'image si elle est plus petite que l'élément */
+    background-repeat: no-repeat;
+    /* Couleur du texte sur l'image, choisissez une couleur lisible */
+    color: #ffffff;
+    /* Centre le texte à l'intérieur de l'élément */
+    /* text-align: start; */
+    /* Réinitialise la marge par défaut du navigateur */
+    /* margin: 0; */
+}
+
+header {
+    color: gold;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+}
+
+.invisible {
+    display: none;
+}
+
+h2,
+h3 {
+    margin: 0px;
+}
+
+[class^="box"] {
+    background-color: rgb(27, 46, 46);
+    border-radius: 10px;
+    margin: 2px;
+    padding: 5px;
+    border: darkgreen dashed;
+}
+
+.boxParticipants {
+    border: 3px rgb(63, 185, 63) solid;
+}
+
+.boxResultat {
+    border: 6px gold double;
+}
+
+.boxResultat h3,
+.boxParticipants h3 {
+    color: rgb(88, 208, 88);
+}
+
+#btnReinitialiserTirage {
+    width: 50px;
+    height: 50px;
+    color: #ffffff;
+    font-weight: bold;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-image: url('../images/supprimer.png');
+}
+
+#btnValiderPrenom {
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-image: url('../images/ajouter-un-utilisateur.png');
+}
+
+#btnTirerAuSort {
+    width: 50px;
+    height: 50px;
+    margin: 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-image: url('../images/boite-cadeau.png');
+}
+
+#btnTirerAuSort:focus {
+    background-color: darkkhaki;
+    border-radius: 20%;
+}
+
+.erreur,
+.rouge {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* *******Mise en forme avec flexbox en ordre de poupée russe******* */
+/* Les conteneurs */
+.mainConteneur {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.conteneurOne {
+    width: 30%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.conteneurTwo {
+    flex-grow: 1;
+}
+
+.conteneurThree {
+    flex-grow: 2;
+}
+
+/* Les box  */
+.boxIntro,
+.boxOptions,
+.boxAjouterParticipants,
+.boxParticipants,
+.boxResultat {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.boxAjouterParticipants {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.boxParticipants,
+.boxResultat {
+    align-content: center;
+}
