@@ -1,3 +1,4 @@
+//--------------------ACTION AU CLICK SUR btnValiderPrenom----------------------------
 // Récupérer élément du DOM button btnValiderPrenom
 const btnValiderPrenom = document.getElementById('btnValiderPrenom');
 
@@ -18,8 +19,8 @@ btnValiderPrenom.addEventListener('click', (event) => {
     }
 });
 
-let nbClickBtnTirerAuSort = 0;
 
+//--------------------ACTION AU CLICK SUR btnTirerAuSort----------------------------
 // Récupérer élément du DOM button btnTirerAuSort
 const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 
@@ -27,9 +28,8 @@ const btnTirerAuSort = document.getElementById("btnTirerAuSort");
 btnTirerAuSort.addEventListener('click', (event) => {
     try {
         // Affiche le resultat du tirage en supprimant la class .invisible du conteneurThree au premier click 
-        nbClickBtnTirerAuSort++;
         const conteneurDevenirVisible = '.conteneurThree';
-        if (nbClickBtnTirerAuSort > 0 && compteurParticipants > 0) {
+        if (compteurParticipants > 0) {
             supprimerClassInvisible(conteneurDevenirVisible);
         }
         const optionTiragePaire = document.getElementById("tiragePaire");
@@ -47,6 +47,7 @@ btnTirerAuSort.addEventListener('click', (event) => {
 })
 
 
+//--------------------ACTION AU CLICK SUR btnReinitialiserTirage----------------------------
 // Récupérer élément du DOM button btnReinitialiserTirage
 const btnReinitialiserTirage = document.getElementById("btnReinitialiserTirage");
 
@@ -76,16 +77,3 @@ btnReinitialiserTirage.addEventListener('click', () => {
     }
 }
 )
-
-
-// Rendre invisible le conteneurTwo et conteneurThree avec la classe invisible, déja en display none CSS
-
-// Try Catch sur les fonctions
-// Gerer tableau vide (ne pas afficher "Nouveau tirage de participant")
-// Gerer tableau impaire pour tirage Paire
-// button Ajouter par defaut quand on tape sur bouton clavier Entree
-// Afficher image explicite cadeau paire si input radio selected et autre image pour chaine
-// Exporter la liste du tirage
-
-// Creer options saisie one one ou zone de texte recuperer et scinder par un moyen
-
